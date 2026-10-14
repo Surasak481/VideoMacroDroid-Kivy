@@ -9,10 +9,9 @@ jobs:
       image: kivy/buildozer:latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fix ownership
-        run: chown -R 1000:1000.
       - name: Build APK
-        run: buildozer android debug --verbose
+        run: |
+          buildozer android debug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
